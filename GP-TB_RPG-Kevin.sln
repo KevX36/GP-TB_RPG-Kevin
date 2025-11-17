@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36408.4 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GP-TB_RPG-Kevin", "GP-TB_RPG-Kevin\GP-TB_RPG-Kevin.csproj", "{CA680FF4-C9E1-405B-A178-516E0DB7C9EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA680FF4-C9E1-405B-A178-516E0DB7C9EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA680FF4-C9E1-405B-A178-516E0DB7C9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA680FF4-C9E1-405B-A178-516E0DB7C9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA680FF4-C9E1-405B-A178-516E0DB7C9EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C95B0EA7-B2EC-4D08-BC92-5CF6378B2E3C}
+	EndGlobalSection
+EndGlobal
