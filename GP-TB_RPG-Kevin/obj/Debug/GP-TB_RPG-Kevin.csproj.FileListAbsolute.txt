@@ -1,0 +1,8 @@
+C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\bin\Debug\GP-TB_RPG-Kevin.exe.config
+C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\bin\Debug\GP-TB_RPG-Kevin.exe
+C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\bin\Debug\GP-TB_RPG-Kevin.pdb
+C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Debug\GP-TB_RPG-Kevin.csproj.AssemblyReference.cache
+C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Debug\GP-TB_RPG-Kevin.csproj.CoreCompileInputs.cache
+C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Debug\GP-TB_RPG-Kevin.exe
+C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Debug\GP-TB_RPG-Kevin.pdb
+C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Debug\GP-TB_RPG-Kevin.exe.config
