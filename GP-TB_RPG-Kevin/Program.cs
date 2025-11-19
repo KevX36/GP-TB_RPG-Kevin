@@ -15,8 +15,8 @@ namespace GP_TB_RPG_Kevin
 
 
         static bool running = true;
-        
-
+        static int minBoundery = 0;
+        static int maxBoundery = 20;
 
 
 
@@ -103,9 +103,9 @@ namespace GP_TB_RPG_Kevin
                 {
                     if (playerX == enemyX[i])
                     {
-                        if (playerX == enemyY[i])
+                        if (playerY == enemyY[i])
                         {
-                            enemyHealth[i]--;
+                            TakeDamage(enemyHealth[i]);
                             playerY++;
                         }
                     }
@@ -119,9 +119,9 @@ namespace GP_TB_RPG_Kevin
                 {
                     if (playerX == enemyX[i])
                     {
-                        if (playerX == enemyY[i])
+                        if (playerY == enemyY[i])
                         {
-                            enemyHealth[i]--;
+                            TakeDamage(enemyHealth[i]);
                             playerY--;
                         }
                     }
@@ -134,9 +134,9 @@ namespace GP_TB_RPG_Kevin
                 {
                     if (playerX == enemyX[i])
                     {
-                        if (playerX == enemyY[i])
+                        if (playerY == enemyY[i])
                         {
-                            enemyHealth[i]--;
+                            TakeDamage(enemyHealth[i]);
                             playerX++;
                         }
                     }
@@ -149,21 +149,29 @@ namespace GP_TB_RPG_Kevin
                 {
                     if (playerX == enemyX[i])
                     {
-                        if (playerX == enemyY[i])
+                        if (playerY == enemyY[i])
                         {
-                            enemyHealth[i]--;
+                            TakeDamage(enemyHealth[i]);
                             playerX--;
                         }
                     }
                 }
             }
-            if(playerX < 0)
+            if(playerX < minBoundery)
             {
-                playerX = 0;
+                playerX = minBoundery;
             }
-            if (playerY < 0)
+            if (playerY < minBoundery)
             {
-                playerY = 0;
+                playerY = minBoundery;
+            }
+            if (playerX > maxBoundery)
+            {
+                playerX = maxBoundery;
+            }
+            if (playerY > maxBoundery)
+            {
+                playerY = maxBoundery;
             }
 
             Console.SetCursorPosition(playerX+5, playerY+5);
@@ -171,9 +179,10 @@ namespace GP_TB_RPG_Kevin
 
 
         }
-        
-        //enemies
 
+        //enemies
+        static int enemiesMove = 3;
+        static int moveStart = enemiesMove;
         static List <int> enemyHealth = new List<int>();
         static List <int> enemyX = new List<int>();
         static List<int> enemyY = new List<int>();
@@ -181,7 +190,7 @@ namespace GP_TB_RPG_Kevin
         
         static void enemy()
         {
-            
+            enemiesMove--;
             for(int i = 0; i < enemyCount; i++)
             {
                 if(enemyHealth[i] <= 0)
@@ -193,29 +202,159 @@ namespace GP_TB_RPG_Kevin
 
 
 
-                Random targeting = new Random();
-                int move = targeting.Next(1,7);
-                if(move > 5)
+                if(enemiesMove == 0)
                 {
-                    return;
+                    Random targeting = new Random();
+                    int move = targeting.Next(1, 7);
+                    if (move > 5)
+                    {
+                        return;
+                    }
+                    else if (move > 3)
+                    {
+                        if (playerX > enemyX[i])
+                        {
+                            enemyX[i]++;
+                            if (playerX == enemyX[i])
+                            {
+                                if (playerY == enemyY[i])
+                                {
+                                    TakeDamage(playerHealth);
+                                    enemyX[i]--;
+                                }
+                            }
+                        }
+                        if (playerX < enemyX[i])
+                        {
+                            enemyX[i]--;
+                            if (playerX == enemyX[i])
+                            {
+                                if (playerY == enemyY[i])
+                                {
+                                    TakeDamage(playerHealth);
+                                    enemyX[i]++;
+                                }
+                            }
+                        }
+                        enemiesMove = moveStart;
+                    }
+                    else if (move > 1)
+                    {
+                        if (playerY > enemyY[i])
+                        {
+                            enemyY[i]++;
+                            if (playerX == enemyX[i])
+                            {
+                                if (playerY == enemyY[i])
+                                {
+                                    TakeDamage(playerHealth);
+                                    enemyY[i]--;
+                                }
+                            }
+                        }
+                        if (playerY < enemyY[i])
+                        {
+                            enemyY[i]--;
+                            if (playerX == enemyX[i])
+                            {
+                                if (playerY == enemyY[i])
+                                {
+                                    TakeDamage(playerHealth);
+                                    enemyY[i]++;
+                                }
+                            }
+                        }
+                        enemiesMove = moveStart;
+                    }
+                    else
+                    {
+                        if (playerX > enemyX[i])
+                        {
+                            enemyX[i]++;
+                            if (playerX == enemyX[i])
+                            {
+                                if (playerY == enemyY[i])
+                                {
+                                    TakeDamage(playerHealth);
+                                    enemyX[i]--;
+                                }
+                            }
+                        }
+                        if (playerX < enemyX[i])
+                        {
+                            enemyX[i]--;
+                            if (playerX == enemyX[i])
+                            {
+                                if (playerY == enemyY[i])
+                                {
+                                    TakeDamage(playerHealth);
+                                    enemyX[i]++;
+                                }
+                            }
+                        }
+                        if (playerY > enemyY[i])
+                        {
+                            enemyY[i]++;
+                            if (playerX == enemyX[i])
+                            {
+                                if (playerY == enemyY[i])
+                                {
+                                    TakeDamage(playerHealth);
+                                    enemyY[i]--;
+                                }
+                            }
+                        }
+                        if (playerY < enemyY[i])
+                        {
+                            enemyY[i]--;
+                            if (playerX == enemyX[i])
+                            {
+                                if (playerY == enemyY[i])
+                                {
+                                    TakeDamage(playerHealth);
+                                    enemyY[i]++;
+                                }
+                            }
+                        }
+                        enemiesMove = moveStart;
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 }
 
 
 
 
 
-
-
-
-                if (enemyX[i] < 0)
+                if (enemyX[i] < minBoundery)
                 {
-                    enemyX[i] = 0;
+                    enemyX[i] = minBoundery;
                 }
-                if (enemyY[i] < 0)
+                if (enemyY[i] < minBoundery)
                 {
-                    enemyY[i] = 0;
+                    enemyY[i] = minBoundery;
                 }
-
+                if (enemyX[i] > maxBoundery)
+                {
+                    enemyX[i] = maxBoundery;
+                }
+                if (enemyY[i] > maxBoundery)
+                {
+                    enemyY[i] = maxBoundery;
+                }
             }
 
 
