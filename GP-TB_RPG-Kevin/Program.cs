@@ -23,6 +23,8 @@ namespace GP_TB_RPG_Kevin
 
         static void Main(string[] args)
         {
+            AddEnemy(10);
+            AddEnemy(10);
 
 
             while (running == true)
@@ -30,8 +32,7 @@ namespace GP_TB_RPG_Kevin
                 Map();
                 player();
                 enemy();
-
-
+                
 
 
 
@@ -70,8 +71,8 @@ namespace GP_TB_RPG_Kevin
 
         //Player
         static int playerHealth = 10;
-        static int playerX = 0;
-        static int playerY = 0;
+        static int playerX = minBoundery;
+        static int playerY = minBoundery;
         
 
         static void player()
@@ -83,18 +84,19 @@ namespace GP_TB_RPG_Kevin
                 running = false;
                 return;
             }
-
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.SetCursorPosition(playerX + 5, playerY + 5);
             Console.Write("X");
             Console.SetCursorPosition(0, 0);
-            Console.WriteLine($"Health: {playerHealth}");
+            Console.Write($"Health: {playerHealth}");
             Console.SetCursorPosition(0, 1);
 
             ConsoleKeyInfo input = Console.ReadKey(true);
-
-            if (!Console.KeyAvailable)
+            Console.ForegroundColor = ConsoleColor.White;
+            if (Console.KeyAvailable)
             {
                 return;
+                
             }
             if (input.Key == ConsoleKey.W)
             {
@@ -105,7 +107,7 @@ namespace GP_TB_RPG_Kevin
                     {
                         if (playerY == enemyY[i])
                         {
-                            TakeDamage(enemyHealth[i]);
+                            enemyHealth[i] = TakeDamage(enemyHealth[i]);
                             playerY++;
                         }
                     }
@@ -121,7 +123,7 @@ namespace GP_TB_RPG_Kevin
                     {
                         if (playerY == enemyY[i])
                         {
-                            TakeDamage(enemyHealth[i]);
+                            enemyHealth[i] = TakeDamage(enemyHealth[i]);
                             playerY--;
                         }
                     }
@@ -136,7 +138,7 @@ namespace GP_TB_RPG_Kevin
                     {
                         if (playerY == enemyY[i])
                         {
-                            TakeDamage(enemyHealth[i]);
+                            enemyHealth[i] = TakeDamage(enemyHealth[i]);
                             playerX++;
                         }
                     }
@@ -151,7 +153,7 @@ namespace GP_TB_RPG_Kevin
                     {
                         if (playerY == enemyY[i])
                         {
-                            TakeDamage(enemyHealth[i]);
+                            enemyHealth[i] = TakeDamage(enemyHealth[i]);
                             playerX--;
                         }
                     }
@@ -173,10 +175,10 @@ namespace GP_TB_RPG_Kevin
             {
                 playerY = maxBoundery;
             }
-
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.SetCursorPosition(playerX+5, playerY+5);
             Console.Write("X");
-
+            Console.ForegroundColor = ConsoleColor.White;
 
         }
 
@@ -187,7 +189,7 @@ namespace GP_TB_RPG_Kevin
         static List <int> enemyX = new List<int>();
         static List<int> enemyY = new List<int>();
         static int enemyCount;
-        
+        static Random targeting = new Random();
         static void enemy()
         {
             enemiesMove--;
@@ -198,13 +200,17 @@ namespace GP_TB_RPG_Kevin
                     enemyX.Remove(i);
                     enemyY.Remove(i);
                     enemyHealth.Remove(i);
+                    enemyCount--;
+
+                    
+
                 }
 
 
 
                 if(enemiesMove == 0)
                 {
-                    Random targeting = new Random();
+                    
                     int move = targeting.Next(1, 7);
                     if (move > 5)
                     {
@@ -219,7 +225,7 @@ namespace GP_TB_RPG_Kevin
                             {
                                 if (playerY == enemyY[i])
                                 {
-                                    TakeDamage(playerHealth);
+                                    playerHealth = TakeDamage(playerHealth);
                                     enemyX[i]--;
                                 }
                             }
@@ -231,7 +237,7 @@ namespace GP_TB_RPG_Kevin
                             {
                                 if (playerY == enemyY[i])
                                 {
-                                    TakeDamage(playerHealth);
+                                    playerHealth = TakeDamage(playerHealth);
                                     enemyX[i]++;
                                 }
                             }
@@ -247,7 +253,7 @@ namespace GP_TB_RPG_Kevin
                             {
                                 if (playerY == enemyY[i])
                                 {
-                                    TakeDamage(playerHealth);
+                                    playerHealth = TakeDamage(playerHealth);
                                     enemyY[i]--;
                                 }
                             }
@@ -259,7 +265,7 @@ namespace GP_TB_RPG_Kevin
                             {
                                 if (playerY == enemyY[i])
                                 {
-                                    TakeDamage(playerHealth);
+                                    playerHealth = TakeDamage(playerHealth);
                                     enemyY[i]++;
                                 }
                             }
@@ -275,7 +281,7 @@ namespace GP_TB_RPG_Kevin
                             {
                                 if (playerY == enemyY[i])
                                 {
-                                    TakeDamage(playerHealth);
+                                    playerHealth = TakeDamage(playerHealth);
                                     enemyX[i]--;
                                 }
                             }
@@ -287,7 +293,7 @@ namespace GP_TB_RPG_Kevin
                             {
                                 if (playerY == enemyY[i])
                                 {
-                                    TakeDamage(playerHealth);
+                                    playerHealth = TakeDamage(playerHealth);
                                     enemyX[i]++;
                                 }
                             }
@@ -299,7 +305,7 @@ namespace GP_TB_RPG_Kevin
                             {
                                 if (playerY == enemyY[i])
                                 {
-                                    TakeDamage(playerHealth);
+                                    playerHealth = TakeDamage(playerHealth);
                                     enemyY[i]--;
                                 }
                             }
@@ -311,7 +317,7 @@ namespace GP_TB_RPG_Kevin
                             {
                                 if (playerY == enemyY[i])
                                 {
-                                    TakeDamage(playerHealth);
+                                    playerHealth = TakeDamage(playerHealth);
                                     enemyY[i]++;
                                 }
                             }
@@ -322,18 +328,19 @@ namespace GP_TB_RPG_Kevin
 
 
 
-
-
-
-
-
-
-
-
-
-
-
                 }
+
+                Console.SetCursorPosition(enemyX[i]+5, enemyY[i]+5);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("#");
+
+
+
+
+
+
+
+
 
 
 
@@ -364,7 +371,7 @@ namespace GP_TB_RPG_Kevin
 
 
 
-
+            Console.ForegroundColor = ConsoleColor.White;
 
 
 
@@ -388,6 +395,30 @@ namespace GP_TB_RPG_Kevin
 
         }
 
+        static Random startPoint = new Random();
+        //adds new enemies
+        static void AddEnemy(int HP)
+        {
+            
+            int spawn = startPoint.Next(1, 3);
+            enemyHealth.Add(HP);
+            if(spawn == 1)
+            {
+                enemyX.Add(minBoundery);
+                enemyY.Add(maxBoundery);
+            }
+            if (spawn == 2)
+            {
+                enemyX.Add(maxBoundery);
+                enemyY.Add(minBoundery);
+            }
+            if (spawn == 3)
+            {
+                enemyX.Add(maxBoundery);
+                enemyY.Add(maxBoundery);
+            }
+            enemyCount++;
+        }
 
 
     }
