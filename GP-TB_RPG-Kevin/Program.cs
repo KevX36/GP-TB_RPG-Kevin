@@ -88,16 +88,13 @@ namespace GP_TB_RPG_Kevin
             Console.SetCursorPosition(playerX + 5, playerY + 5);
             Console.Write("X");
             Console.SetCursorPosition(0, 0);
-            Console.Write($"Health: {playerHealth}");
+            Console.WriteLine($"Health: {playerHealth}                              ");
             Console.SetCursorPosition(0, 1);
 
             ConsoleKeyInfo input = Console.ReadKey(true);
             Console.ForegroundColor = ConsoleColor.White;
-            if (Console.KeyAvailable)
-            {
-                return;
-                
-            }
+
+
             if (input.Key == ConsoleKey.W)
             {
                 playerY--;
@@ -112,7 +109,7 @@ namespace GP_TB_RPG_Kevin
                         }
                     }
                 }
-                
+
             }
             if (input.Key == ConsoleKey.S)
             {
@@ -159,7 +156,7 @@ namespace GP_TB_RPG_Kevin
                     }
                 }
             }
-            if(playerX < minBoundery)
+            if (playerX < minBoundery)
             {
                 playerX = minBoundery;
             }
@@ -188,30 +185,35 @@ namespace GP_TB_RPG_Kevin
         static List <int> enemyHealth = new List<int>();
         static List <int> enemyX = new List<int>();
         static List<int> enemyY = new List<int>();
-        static int enemyCount;
+        static int enemyCount = 0;
         static Random targeting = new Random();
         static void enemy()
         {
+            
             enemiesMove--;
-            for(int i = 0; i < enemyCount; i++)
+            for (int i = 0; i < enemyCount; i++)
             {
-                if(enemyHealth[i] <= 0)
+                if (enemyHealth[i] <= 0)
                 {
                     enemyX.Remove(i);
                     enemyY.Remove(i);
                     enemyHealth.Remove(i);
                     enemyCount--;
 
-                    
-
                 }
+            }
+            for (int i = 0; i < enemyCount; i++)
+            {
+                
+                Console.SetCursorPosition(enemyX[i] + 5, enemyY[i] + 5);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("#");
 
 
-
-                if(enemiesMove == 0)
+                if (enemiesMove == 0)
                 {
                     
-                    int move = targeting.Next(1, 7);
+                    int move = targeting.Next(1, 6);
                     if (move > 5)
                     {
                         return;
