@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Kevin\u0027s unity projects\\GP-TB_RPG-Kevin\\",
+  "WorkspaceRootPath": "C:\\nscc_work\\GP-TB_RPG-Kevin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CA680FF4-C9E1-405B-A178-516E0DB7C9EE}|GP-TB_RPG-Kevin\\GP-TB_RPG-Kevin.csproj|c:\\kevin\u0027s unity projects\\gp-tb_rpg-kevin\\gp-tb_rpg-kevin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CA680FF4-C9E1-405B-A178-516E0DB7C9EE}|GP-TB_RPG-Kevin\\GP-TB_RPG-Kevin.csproj|c:\\nscc_work\\gp-tb_rpg-kevin\\gp-tb_rpg-kevin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA680FF4-C9E1-405B-A178-516E0DB7C9EE}|GP-TB_RPG-Kevin\\GP-TB_RPG-Kevin.csproj|solutionrelative:gp-tb_rpg-kevin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Kevin\u0027s unity projects\\GP-TB_RPG-Kevin\\Map.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\nscc_work\\GP-TB_RPG-Kevin\\Map.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Map.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
@@ -24,9 +24,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Map.txt",
-              "DocumentMoniker": "C:\\Kevin\u0027s unity projects\\GP-TB_RPG-Kevin\\Map.txt",
+              "DocumentMoniker": "C:\\nscc_work\\GP-TB_RPG-Kevin\\Map.txt",
               "RelativeDocumentMoniker": "Map.txt",
-              "ToolTip": "C:\\Kevin\u0027s unity projects\\GP-TB_RPG-Kevin\\Map.txt",
+              "ToolTip": "C:\\nscc_work\\GP-TB_RPG-Kevin\\Map.txt",
               "RelativeToolTip": "Map.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
@@ -36,11 +36,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Kevin\u0027s unity projects\\GP-TB_RPG-Kevin\\GP-TB_RPG-Kevin\\Program.cs",
+              "DocumentMoniker": "C:\\nscc_work\\GP-TB_RPG-Kevin\\GP-TB_RPG-Kevin\\Program.cs",
               "RelativeDocumentMoniker": "GP-TB_RPG-Kevin\\Program.cs",
-              "ToolTip": "C:\\Kevin\u0027s unity projects\\GP-TB_RPG-Kevin\\GP-TB_RPG-Kevin\\Program.cs",
+              "ToolTip": "C:\\nscc_work\\GP-TB_RPG-Kevin\\GP-TB_RPG-Kevin\\Program.cs",
               "RelativeToolTip": "GP-TB_RPG-Kevin\\Program.cs",
-              "ViewState": "AgIAAHgAAAAAAAAAAADwv50AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAM0AAAAAAAAAAAAQwPIAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T12:48:53.869Z",
               "EditorCaption": ""

@@ -6,3 +6,11 @@ C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Debug\GP-TB_RPG-Ke
 C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Debug\GP-TB_RPG-Kevin.exe
 C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Debug\GP-TB_RPG-Kevin.pdb
 C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Debug\GP-TB_RPG-Kevin.exe.config
+C:\nscc_work\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\bin\Debug\GP-TB_RPG-Kevin.exe.config
+C:\nscc_work\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\bin\Debug\GP-TB_RPG-Kevin.exe
+C:\nscc_work\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\bin\Debug\GP-TB_RPG-Kevin.pdb
+C:\nscc_work\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Debug\GP-TB_RPG-Kevin.csproj.AssemblyReference.cache
+C:\nscc_work\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Debug\GP-TB_RPG-Kevin.exe.config
+C:\nscc_work\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Debug\GP-TB_RPG-Kevin.csproj.CoreCompileInputs.cache
+C:\nscc_work\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Debug\GP-TB_RPG-Kevin.exe
+C:\nscc_work\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Debug\GP-TB_RPG-Kevin.pdb

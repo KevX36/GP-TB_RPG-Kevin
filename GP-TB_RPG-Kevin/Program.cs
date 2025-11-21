@@ -180,8 +180,7 @@ namespace GP_TB_RPG_Kevin
         }
 
         //enemies
-        static int enemiesMove = 3;
-        static int moveStart = enemiesMove;
+        
         static List <int> enemyHealth = new List<int>();
         static List <int> enemyX = new List<int>();
         static List<int> enemyY = new List<int>();
@@ -190,7 +189,7 @@ namespace GP_TB_RPG_Kevin
         static void enemy()
         {
             
-            enemiesMove--;
+            
             for (int i = 0; i < enemyCount; i++)
             {
                 if (enemyHealth[i] <= 0)
@@ -210,126 +209,118 @@ namespace GP_TB_RPG_Kevin
                 Console.Write("#");
 
 
-                if (enemiesMove == 0)
+                int move = targeting.Next(1, 6);
+                if (move > 5)
                 {
+                    return;
+                }
+                else if (move > 3)
+                {
+                    if (playerX > enemyX[i])
+                    {
+                        enemyX[i]++;
+                        if (playerX == enemyX[i])
+                        {
+                            if (playerY == enemyY[i])
+                            {
+                                playerHealth = TakeDamage(playerHealth);
+                                enemyX[i]--;
+                            }
+                        }
+                    }
+                    if (playerX < enemyX[i])
+                    {
+                        enemyX[i]--;
+                        if (playerX == enemyX[i])
+                        {
+                            if (playerY == enemyY[i])
+                            {
+                                playerHealth = TakeDamage(playerHealth);
+                                enemyX[i]++;
+                            }
+                        }
+                    }
                     
-                    int move = targeting.Next(1, 6);
-                    if (move > 5)
+                }
+                else if (move > 1)
+                {
+                    if (playerY > enemyY[i])
                     {
-                        return;
+                        enemyY[i]++;
+                        if (playerX == enemyX[i])
+                        {
+                            if (playerY == enemyY[i])
+                            {
+                                playerHealth = TakeDamage(playerHealth);
+                                enemyY[i]--;
+                            }
+                        }
                     }
-                    else if (move > 3)
+                    if (playerY < enemyY[i])
                     {
-                        if (playerX > enemyX[i])
+                        enemyY[i]--;
+                        if (playerX == enemyX[i])
                         {
-                            enemyX[i]++;
-                            if (playerX == enemyX[i])
+                            if (playerY == enemyY[i])
                             {
-                                if (playerY == enemyY[i])
-                                {
-                                    playerHealth = TakeDamage(playerHealth);
-                                    enemyX[i]--;
-                                }
+                                playerHealth = TakeDamage(playerHealth);
+                                enemyY[i]++;
                             }
                         }
-                        if (playerX < enemyX[i])
-                        {
-                            enemyX[i]--;
-                            if (playerX == enemyX[i])
-                            {
-                                if (playerY == enemyY[i])
-                                {
-                                    playerHealth = TakeDamage(playerHealth);
-                                    enemyX[i]++;
-                                }
-                            }
-                        }
-                        enemiesMove = moveStart;
                     }
-                    else if (move > 1)
+                    
+                }
+                else
+                {
+                    if (playerX > enemyX[i])
                     {
-                        if (playerY > enemyY[i])
+                        enemyX[i]++;
+                        if (playerX == enemyX[i])
                         {
-                            enemyY[i]++;
-                            if (playerX == enemyX[i])
+                            if (playerY == enemyY[i])
                             {
-                                if (playerY == enemyY[i])
-                                {
-                                    playerHealth = TakeDamage(playerHealth);
-                                    enemyY[i]--;
-                                }
+                                playerHealth = TakeDamage(playerHealth);
+                                enemyX[i]--;
                             }
                         }
-                        if (playerY < enemyY[i])
-                        {
-                            enemyY[i]--;
-                            if (playerX == enemyX[i])
-                            {
-                                if (playerY == enemyY[i])
-                                {
-                                    playerHealth = TakeDamage(playerHealth);
-                                    enemyY[i]++;
-                                }
-                            }
-                        }
-                        enemiesMove = moveStart;
                     }
-                    else
+                    if (playerX < enemyX[i])
                     {
-                        if (playerX > enemyX[i])
+                        enemyX[i]--;
+                        if (playerX == enemyX[i])
                         {
-                            enemyX[i]++;
-                            if (playerX == enemyX[i])
+                            if (playerY == enemyY[i])
                             {
-                                if (playerY == enemyY[i])
-                                {
-                                    playerHealth = TakeDamage(playerHealth);
-                                    enemyX[i]--;
-                                }
+                                playerHealth = TakeDamage(playerHealth);
+                                enemyX[i]++;
                             }
                         }
-                        if (playerX < enemyX[i])
-                        {
-                            enemyX[i]--;
-                            if (playerX == enemyX[i])
-                            {
-                                if (playerY == enemyY[i])
-                                {
-                                    playerHealth = TakeDamage(playerHealth);
-                                    enemyX[i]++;
-                                }
-                            }
-                        }
-                        if (playerY > enemyY[i])
-                        {
-                            enemyY[i]++;
-                            if (playerX == enemyX[i])
-                            {
-                                if (playerY == enemyY[i])
-                                {
-                                    playerHealth = TakeDamage(playerHealth);
-                                    enemyY[i]--;
-                                }
-                            }
-                        }
-                        if (playerY < enemyY[i])
-                        {
-                            enemyY[i]--;
-                            if (playerX == enemyX[i])
-                            {
-                                if (playerY == enemyY[i])
-                                {
-                                    playerHealth = TakeDamage(playerHealth);
-                                    enemyY[i]++;
-                                }
-                            }
-                        }
-                        enemiesMove = moveStart;
                     }
-
-
-
-
+                    if (playerY > enemyY[i])
+                    {
+                        enemyY[i]++;
+                        if (playerX == enemyX[i])
+                        {
+                            if (playerY == enemyY[i])
+                            {
+                                playerHealth = TakeDamage(playerHealth);
+                                enemyY[i]--;
+                            }
+                        }
+                    }
+                    if (playerY < enemyY[i])
+                    {
+                        enemyY[i]--;
+                        if (playerX == enemyX[i])
+                        {
+                            if (playerY == enemyY[i])
+                            {
+                                playerHealth = TakeDamage(playerHealth);
+                                enemyY[i]++;
+                            }
+                        }
+                    }
+                    
                 }
 
                 Console.SetCursorPosition(enemyX[i]+5, enemyY[i]+5);
