@@ -5,3 +5,5 @@ C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Release\GP-TB_RPG-
 C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Release\GP-TB_RPG-Kevin.csproj.CoreCompileInputs.cache
 C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Release\GP-TB_RPG-Kevin.exe
 C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Release\GP-TB_RPG-Kevin.pdb
+C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\obj\Release\GP-TB_RPG-Kevin.exe.config
+C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\bin\Release\Map.txt

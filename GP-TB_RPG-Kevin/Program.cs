@@ -65,7 +65,10 @@ namespace GP_TB_RPG_Kevin
         //map
 
         //reads map
-        static string[] map1D = File.ReadAllLines(@"C:\Kevin's unity projects\GP-TB_RPG-Kevin\GP-TB_RPG-Kevin\Map.txt");
+        static string[] map1D = File.ReadAllLines(@"Map.txt");
+        
+        
+        
         static char[,] map = new char[,]
         {
             { map1D[0][0], map1D[0][1], map1D[0][2], map1D[0][3], map1D[0][4], map1D[0][5], map1D[0][6], map1D[0][7], map1D[0][8], map1D[0][9], map1D[0][10], map1D[0][11], map1D[0][12], map1D[0][13], map1D[0][14], map1D[0][15], map1D[0][16], map1D[0][17], map1D[0][18], map1D[0][19] },
