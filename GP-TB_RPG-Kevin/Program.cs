@@ -24,6 +24,7 @@ namespace GP_TB_RPG_Kevin
 
         static void Main(string[] args)
         {
+            Console.CursorVisible = (false);
             
             AddEnemy(10, true);
             AddEnemy(10, true);
@@ -31,17 +32,26 @@ namespace GP_TB_RPG_Kevin
 
             while (running == true)
             {
-                Map();
-                enemy();
-                player();
-
-
+                MapDraw();
+                Enemy();
+                Player();
+                if (enemyCount <= 0)
+                {
+                    enemyX.Clear();
+                    enemyY.Clear();
+                    enemyHealth.Clear();
+                    AddEnemy(10);
+                    AddEnemy(10);
+                }
+                
 
 
             }
 
 
-
+            Console.Clear();
+            Console.WriteLine("GameOver");
+            Console.ReadKey();
 
 
 
@@ -82,15 +92,90 @@ namespace GP_TB_RPG_Kevin
 
         static int mapX = map.GetLength(0);
         static int mapY = map.GetLength(1);
-        static void Map()
+        static void MapDraw()
         {
             for(int i = 0; i < mapX; i++)
             {
                 for (int j = 0; j < mapY; j++)
                 {
+                    //map draw and color cheak
                     Console.SetCursorPosition(j + 5, i + 5);
-                }
+                    if (map[i, j] == '^')
+                    {
+                        Console.BackgroundColor = ConsoleColor.Gray;
+                    }
+                    else if (map[i, j] == '~')
+                    {
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                    }
+                    else if (map[i, j] == '`')
+                    {
+                        Console.BackgroundColor = ConsoleColor.Green;
+                    }
+                    Console.Write(map[i, j]);
+                    
 
+
+                    //border draw
+                    if (i == 0)
+                    {
+                        Console.SetCursorPosition(j + 5, i + 4);
+                        Console.Write("-");
+                        if (j == 0)
+                        {
+                            Console.SetCursorPosition(j + 4, i + 4);
+                            Console.Write("+");
+                        }
+                        if (j == mapY - 1)
+                        {
+                            Console.SetCursorPosition(j + 6, i + 4);
+                            Console.Write("+");
+                        }
+                    }
+                    if (j == 0)
+                    {
+                        Console.SetCursorPosition(j + 4, i + 5);
+                        Console.Write("|");
+                    }
+                    if (i == mapX - 1)
+                    {
+                        Console.SetCursorPosition(j + 5, i + 6);
+                        Console.Write("-");
+                        if (j == mapY - 1)
+                        {
+                            Console.SetCursorPosition(j + 6, i + 6);
+                            Console.Write("+");
+                        }
+                        if (j == 0)
+                        {
+                            Console.SetCursorPosition(j + 4, i + 6);
+                            Console.Write("+");
+                        }
+                    }
+                    if (j == mapY - 1)
+                    {
+                        Console.SetCursorPosition(j + 6, i + 5);
+                        Console.Write("|");
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                }
+                
             }
         }
 
@@ -101,13 +186,13 @@ namespace GP_TB_RPG_Kevin
 
 
         //Player
-        static int playerHealth = 10;
+        static int playerHealth = 100;
         static int playerX = minBoundery;
         static int playerY = minBoundery;
         static int count = 0;
         static int respawn = 0;
-
-        static void player()
+        
+        static void Player()
         {
 
 
@@ -130,6 +215,10 @@ namespace GP_TB_RPG_Kevin
             if (input.Key == ConsoleKey.W)
             {
                 playerY--;
+                if (playerY < minBoundery)
+                {
+                    playerY = minBoundery;
+                }
                 for (int i = 0; i < enemyCount; i++)
                 {
                     if (playerX == enemyX[i])
@@ -141,11 +230,19 @@ namespace GP_TB_RPG_Kevin
                         }
                     }
                 }
+                if (map[playerY,playerX] != '`')
+                {
+                    playerY++;
+                }
 
             }
             if (input.Key == ConsoleKey.S)
             {
                 playerY++;
+                if (playerY > maxBoundery)
+                {
+                    playerY = maxBoundery;
+                }
                 for (int i = 0; i < enemyCount; i++)
                 {
                     if (playerX == enemyX[i])
@@ -156,11 +253,20 @@ namespace GP_TB_RPG_Kevin
                             playerY--;
                         }
                     }
+                    
+                }
+                if (map[playerY, playerX] != '`')
+                {
+                    playerY--;
                 }
             }
             if (input.Key == ConsoleKey.A)
             {
                 playerX--;
+                if (playerX < minBoundery)
+                {
+                    playerX = minBoundery;
+                }
                 for (int i = 0; i < enemyCount; i++)
                 {
                     if (playerX == enemyX[i])
@@ -171,11 +277,20 @@ namespace GP_TB_RPG_Kevin
                             playerX++;
                         }
                     }
+                    
+                }
+                if (map[playerY, playerX] != '`')
+                {
+                    playerX++;
                 }
             }
             if (input.Key == ConsoleKey.D)
             {
                 playerX++;
+                if (playerX > maxBoundery)
+                {
+                    playerX = maxBoundery;
+                }
                 for (int i = 0; i < enemyCount; i++)
                 {
                     if (playerX == enemyX[i])
@@ -186,24 +301,16 @@ namespace GP_TB_RPG_Kevin
                             playerX--;
                         }
                     }
+                    
+                }
+                if (map[playerY, playerX] != '`')
+                {
+                    playerX--;
                 }
             }
-            if (playerX < minBoundery)
-            {
-                playerX = minBoundery;
-            }
-            if (playerY < minBoundery)
-            {
-                playerY = minBoundery;
-            }
-            if (playerX > maxBoundery)
-            {
-                playerX = maxBoundery;
-            }
-            if (playerY > maxBoundery)
-            {
-                playerY = maxBoundery;
-            }
+            
+            
+            //draws player
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.SetCursorPosition(playerX+5, playerY+5);
             Console.Write("X");
@@ -218,43 +325,26 @@ namespace GP_TB_RPG_Kevin
         static List<int> enemyY = new List<int>();
         static int enemyCount = 0;
         static Random targeting = new Random();
-        static void enemy()
+        //moves enemies
+        static void Enemy()
         {
             
             
-            for (int i = 0; i < enemyCount; i++)
-            {
-                if (enemyHealth[i] <= 0)
-                {
-                    enemyX.Remove(i);
-                    enemyY.Remove(i);
-                    enemyHealth.Remove(i);
-                    enemyCount--;
-                    count++;
-                    respawn++;
-                    if(respawn == 2)
-                    {
-                        AddEnemy(10);
-                        AddEnemy(10);
-
-
-                        respawn = 0;
-                    }
-                }
-            }
+            
+            //moves living
             for (int i = 0; i < enemyCount; i++)
             {
                 
-                Console.SetCursorPosition(enemyX[i] + 5, enemyY[i] + 5);
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("#");
+                
 
 
                 int move = targeting.Next(1, 7);
+                //does nothing
                 if (move > 5)
                 {
-                    return;
+                    
                 }
+                // move on x
                 else if (move > 3)
                 {
                     if (playerX > enemyX[i])
@@ -268,6 +358,10 @@ namespace GP_TB_RPG_Kevin
                                 enemyX[i]--;
                             }
                         }
+                        if (map[enemyY[i], enemyX[i]] != '`')
+                        {
+                            enemyX[i]--;
+                        }
                     }
                     if (playerX < enemyX[i])
                     {
@@ -280,9 +374,14 @@ namespace GP_TB_RPG_Kevin
                                 enemyX[i]++;
                             }
                         }
+                        if (map[enemyY[i], enemyX[i]] != '`')
+                        {
+                            enemyX[i]++;
+                        }
                     }
                     
                 }
+                //move on y
                 else if (move > 1)
                 {
                     if (playerY > enemyY[i])
@@ -295,6 +394,11 @@ namespace GP_TB_RPG_Kevin
                                 playerHealth = TakeDamage(playerHealth);
                                 enemyY[i]--;
                             }
+                            
+                        }
+                        if (map[enemyY[i], enemyX[i]] != '`')
+                        {
+                            enemyY[i]--;
                         }
                     }
                     if (playerY < enemyY[i])
@@ -308,9 +412,14 @@ namespace GP_TB_RPG_Kevin
                                 enemyY[i]++;
                             }
                         }
+                        if (map[enemyY[i], enemyX[i]] != '`')
+                        {
+                            enemyY[i]++;
+                        }
                     }
                     
                 }
+                //move on both
                 else
                 {
                     if (playerX > enemyX[i])
@@ -324,6 +433,10 @@ namespace GP_TB_RPG_Kevin
                                 enemyX[i]--;
                             }
                         }
+                        if (map[enemyY[i], enemyX[i]] != '`')
+                        {
+                            enemyX[i]--;
+                        }
                     }
                     if (playerX < enemyX[i])
                     {
@@ -336,6 +449,10 @@ namespace GP_TB_RPG_Kevin
                                 enemyX[i]++;
                             }
                         }
+                        if (map[enemyY[i], enemyX[i]] != '`')
+                        {
+                            enemyX[i]++;
+                        }
                     }
                     if (playerY > enemyY[i])
                     {
@@ -347,6 +464,11 @@ namespace GP_TB_RPG_Kevin
                                 playerHealth = TakeDamage(playerHealth);
                                 enemyY[i]--;
                             }
+                            
+                        }
+                        if (map[enemyY[i], enemyX[i]] != '`')
+                        {
+                            enemyY[i]--;
                         }
                     }
                     if (playerY < enemyY[i])
@@ -360,13 +482,15 @@ namespace GP_TB_RPG_Kevin
                                 enemyY[i]++;
                             }
                         }
+                        if (map[enemyY[i], enemyX[i]] != '`')
+                        {
+                            enemyY[i]++;
+                        }
                     }
                     
                 }
-
-                Console.SetCursorPosition(enemyX[i]+5, enemyY[i]+5);
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("#");
+                
+                
                 
 
 
@@ -396,9 +520,23 @@ namespace GP_TB_RPG_Kevin
                 {
                     enemyY[i] = maxBoundery;
                 }
+                Console.SetCursorPosition(enemyX[i] + 5, enemyY[i] + 5);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("#");
             }
-
-
+            for (int i = enemyCount; i > 0; i--)
+            {
+                if (enemyHealth[i-1]== 0)
+                {
+                    enemyHealth.Remove(i - 1);
+                    enemyX.Remove(i - 1);
+                    enemyX.Remove(i - 1);
+                    enemyCount --;
+                    count++;
+                    
+                }
+            }
+            
 
 
 
@@ -409,7 +547,7 @@ namespace GP_TB_RPG_Kevin
 
 
 
-
+            
         }
 
 
